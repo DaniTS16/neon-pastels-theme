@@ -1,180 +1,180 @@
 {
-    "theme": {
-        "name": "Neon Pastels",
-        "version": "1.2.0",
-        "status": "Theme Garden Ready",
-        "description": "Accessible Tumblr theme with pastel light mode, neon dark mode, and brand-governed motion."
+  "theme": {
+    "name": "Neon Pastels",
+    "version": "1.2.0",
+    "status": "Theme Garden Ready",
+    "description": "Accessible Tumblr theme with pastel light mode, neon dark mode, and brand-governed motion."
+  },
+  "branding": {
+    "parent_company": {
+      "name": "IRI National",
+      "public_facing": false
     },
-    "branding": {
-        "parent_company": {
-            "name": "IRI National",
-            "public_facing": false
-        },
-        "public_brand": {
-            "name": "Luv Media Group",
-            "operates_as": "IRI National d/b/a Luv Media Group",
-            "public_facing": true
-        },
-        "legal_copy": {
-            "required_format": "IRI National d/b/a Luv Media Group",
-            "display_condition": "public_mode_only"
-        },
-        "private_mode": {
-            "enabled": false,
-            "effect": "remove_legal_footer"
-        }
+    "public_brand": {
+      "name": "Luv Media Group",
+      "operates_as": "IRI National d/b/a Luv Media Group",
+      "public_facing": true
     },
-    "brand_lock": {
-        "enabled": true,
-        "lock_level": "strict",
-        "rules": {
-            "allow_parent_brand_logo": false,
-            "allow_brand_name_override": false,
-            "allow_legal_copy_removal": false,
-            "allow_palette_removal": false,
-            "allow_motion_spec_override": false
-        },
-        "exceptions": {
-            "private_use": {
-                "allow_legal_copy_removal": true,
-                "allow_brand_name_override": false,
-                "notes": "Private Luv-only mode for internal or portfolio use"
-            }
-        }
+    "legal_copy": {
+      "required_format": "IRI National d/b/a Luv Media Group",
+      "display_condition": "public_mode_only"
     },
-    "theme_options": {
-        "booleans": {
-            "Dark Mode Default": false,
-            "Enable Logo Animation": true,
-            "Reduce Motion": false,
-            "Luv Only Mode": false
-        },
-        "selects": {
-            "Color Palette": "Pastel",
-            "Layout Style": "Single",
-            "Motion Preset": "Brand",
-            "Neon Glow Intensity": "Medium"
-        },
-        "text": {
-            "Footer Text": "Powered by Tumblr"
-        }
-    },
-    "color_system": {
-        "active_palette": "Pastel",
-        "palettes": {
-            "Pastel": {
-                "background": "#FFF5FA",
-                "foreground": "#221A22",
-                "accents": [
-                    "#B7D7F5",
-                    "#D8C6F0"
-                ]
-            },
-            "Peach": {
-                "background": "#FFE6D8",
-                "foreground": "#221A22",
-                "accents": [
-                    "#FFC4A3",
-                    "#FF9ECF"
-                ]
-            },
-            "Lilac": {
-                "background": "#F3E9FF",
-                "foreground": "#221A22",
-                "accents": [
-                    "#D7C9FF",
-                    "#C4B2FF"
-                ]
-            },
-            "Neon": {
-                "background": "#000000",
-                "foreground": "#F5EAFF",
-                "accents": [
-                    "#D100FF",
-                    "#36EAFF"
-                ]
-            }
-        },
-        "wcag": {
-            "standard": "WCAG 2.1 AA",
-            "status": "PASS"
-        }
-    },
-    "layout_system": {
-        "active_layout": "Single",
-        "layouts": {
-            "Single": {
-                "max_width": "42rem",
-                "columns": 1
-            },
-            "Wide": {
-                "max_width": "72rem",
-                "columns": 1
-            },
-            "Magazine": {
-                "max_width": "72rem",
-                "columns": 2,
-                "column_gap": "2rem"
-            }
-        }
-    },
-    "motion_system": {
-        "tokens": {
-            "logo_duration": "700ms",
-            "easing": "cubic-bezier(0.22, 1, 0.36, 1)"
-        },
-        "active_preset": "Brand",
-        "presets": {
-            "Subtle": {
-                "post_entry": "fadeUp 300ms",
-                "logo_animation": true,
-                "glow": "minimal"
-            },
-            "Brand": {
-                "post_entry": "fadeUp 600ms",
-                "logo_animation": true,
-                "glow": "standard"
-            },
-            "Static": {
-                "post_entry": "none",
-                "logo_animation": false,
-                "glow": "none"
-            }
-        },
-        "reduced_motion": {
-            "supports_system_preference": true,
-            "supports_theme_option": true,
-            "behavior": "disable_all_motion"
-        }
-    },
-    "logo_system": {
-        "animated": {
-            "enabled": true,
-            "fallback": "static"
-        },
-        "static": {
-            "always_present": true
-        }
-    },
-    "accessibility": {
-        "keyboard_navigation": true,
-        "skip_link": true,
-        "aria_landmarks": true,
-        "reduced_motion": true,
-        "color_contrast": "AA"
-    },
-    "theme_garden": {
-        "status": "Ready",
-        "previews": {
-            "desktop": "1400x900",
-            "tablet": "900x700",
-            "mobile": "425x750"
-        },
-        "disallowed_features": [
-            "external tracking",
-            "obfuscated code",
-            "JSON parsing",
-            "JS animation timelines"
-        ]
+    "private_mode": {
+      "enabled": false,
+      "effect": "remove_legal_footer"
     }
+  },
+  "brand_lock": {
+    "enabled": true,
+    "lock_level": "strict",
+    "rules": {
+      "allow_parent_brand_logo": false,
+      "allow_brand_name_override": false,
+      "allow_legal_copy_removal": false,
+      "allow_palette_removal": false,
+      "allow_motion_spec_override": false
+    },
+    "exceptions": {
+      "private_use": {
+        "allow_legal_copy_removal": true,
+        "allow_brand_name_override": false,
+        "notes": "Private Luv-only mode for internal or portfolio use"
+      }
+    }
+  },
+  "theme_options": {
+    "booleans": {
+      "DarkModeDefault": false,
+      "EnableLogoAnimation": true,
+      "ReduceMotion": false,
+      "LuvOnlyMode": false
+    },
+    "selects": {
+      "ColorPalette": "Pastel",
+      "LayoutStyle": "Single",
+      "MotionPreset": "Brand",
+      "NeonGlowIntensity": "Medium"
+    },
+    "text": {
+      "FooterText": "Powered by Tumblr"
+    }
+  },
+  "color_system": {
+    "active_palette": "Pastel",
+    "palettes": {
+      "Pastel": {
+        "background": "#FFF5FA",
+        "foreground": "#221A22",
+        "accents": [
+          "#B7D7F5",
+          "#D8C6F0"
+        ]
+      },
+      "Peach": {
+        "background": "#FFE6D8",
+        "foreground": "#221A22",
+        "accents": [
+          "#FFC4A3",
+          "#FF9ECF"
+        ]
+      },
+      "Lilac": {
+        "background": "#F3E9FF",
+        "foreground": "#221A22",
+        "accents": [
+          "#D7C9FF",
+          "#C4B2FF"
+        ]
+      },
+      "Neon": {
+        "background": "#000000",
+        "foreground": "#F5EAFF",
+        "accents": [
+          "#D100FF",
+          "#36EAFF"
+        ]
+      }
+    },
+    "wcag": {
+      "standard": "WCAG 2.1 AA",
+      "status": "PASS"
+    }
+  },
+  "layout_system": {
+    "active_layout": "Single",
+    "layouts": {
+      "Single": {
+        "max_width": "42rem",
+        "columns": 1
+      },
+      "Wide": {
+        "max_width": "72rem",
+        "columns": 1
+      },
+      "Magazine": {
+        "max_width": "72rem",
+        "columns": 2,
+        "column_gap": "2rem"
+      }
+    }
+  },
+  "motion_system": {
+    "tokens": {
+      "logo_duration": "700ms",
+      "easing": "cubic-bezier(0.22, 1, 0.36, 1)"
+    },
+    "active_preset": "Brand",
+    "presets": {
+      "Subtle": {
+        "post_entry": "fadeUp 300ms",
+        "logo_animation": true,
+        "glow": "minimal"
+      },
+      "Brand": {
+        "post_entry": "fadeUp 600ms",
+        "logo_animation": true,
+        "glow": "standard"
+      },
+      "Static": {
+        "post_entry": "none",
+        "logo_animation": false,
+        "glow": "none"
+      }
+    },
+    "reduced_motion": {
+      "supports_system_preference": true,
+      "supports_theme_option": true,
+      "behavior": "disable_all_motion"
+    }
+  },
+  "logo_system": {
+    "animated": {
+      "enabled": true,
+      "fallback": "static"
+    },
+    "static": {
+      "always_present": true
+    }
+  },
+  "accessibility": {
+    "keyboard_navigation": true,
+    "skip_link": true,
+    "aria_landmarks": true,
+    "reduced_motion": true,
+    "color_contrast": "AA"
+  },
+  "theme_garden": {
+    "status": "Ready",
+    "previews": {
+      "desktop": "1400x900",
+      "tablet": "900x700",
+      "mobile": "425x750"
+    },
+    "disallowed_features": [
+      "external tracking",
+      "obfuscated code",
+      "JSON parsing",
+      "JS animation timelines"
+    ]
+  }
 }

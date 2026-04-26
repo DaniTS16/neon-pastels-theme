@@ -1,46 +1,60 @@
-// Layout variants
+// Glow intensity
 
-.np-layout-Single {
-  --np-max-width: 42rem;
-  --np-columns: 1;
+.np-glow-Soft {
+  --np-glow-strength: 0 0 10px rgba(209, 0, 255, 0.25);
 }
 
-.np-layout-Wide {
-  --np-max-width: 72rem;
-  --np-columns: 1;
+.np-glow-Medium {
+  --np-glow-strength: 0 0 18px rgba(209, 0, 255, 0.45);
 }
 
-.np-layout-Magazine {
-  --np-max-width: 72rem;
-  --np-columns: 2;
-  --np-column-gap: 2rem;
+.np-glow-Strong {
+  --np-glow-strength: 0 0 26px rgba(209, 0, 255, 0.7);
 }
 
-// Base layout
+// Motion presets
 
-body.np-theme {
-  margin: 0;
-  min-height: 100vh;
-  background: var(--np-bg);
-  color: var(--np-fg);
-  font-family: var(--np-font-body);
-  -webkit-font-smoothing: antialiased;
+.np-motion-Subtle .np-post {
+  animation: np-fadeUp-300 300ms var(--np-easing) both;
 }
 
-.np-main {
-  max-width: var(--np-max-width);
-  margin: 0 auto;
-  padding: 2rem 1.25rem 3rem;
+.np-motion-Brand .np-post {
+  animation: np-fadeUp-600 600ms var(--np-easing) both;
 }
 
-.np-posts {
-  display: grid;
-  grid-template-columns: repeat(var(--np-columns), minmax(0, 1fr));
-  gap: 1.75rem var(--np-column-gap);
+.np-motion-Static .np-post {
+  animation: none;
 }
 
-@media (max-width: 768px) {
-  .np-posts {
-    grid-template-columns: 1fr;
+// Reduced motion
+
+.np-reduce-motion * {
+  animation-duration: 0.001ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body.np-theme * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
   }
+}
+
+// Keyframes
+
+@keyframes np-logo-in {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes np-fadeUp-300 {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes np-fadeUp-600 {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: translateY(0); }
 }
