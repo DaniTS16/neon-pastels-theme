@@ -1,0 +1,46 @@
+// Layout variants
+
+.np-layout-Single {
+  --np-max-width: 42rem;
+  --np-columns: 1;
+}
+
+.np-layout-Wide {
+  --np-max-width: 72rem;
+  --np-columns: 1;
+}
+
+.np-layout-Magazine {
+  --np-max-width: 72rem;
+  --np-columns: 2;
+  --np-column-gap: 2rem;
+}
+
+// Base layout
+
+body.np-theme {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--np-bg);
+  color: var(--np-fg);
+  font-family: var(--np-font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+.np-main {
+  max-width: var(--np-max-width);
+  margin: 0 auto;
+  padding: 2rem 1.25rem 3rem;
+}
+
+.np-posts {
+  display: grid;
+  grid-template-columns: repeat(var(--np-columns), minmax(0, 1fr));
+  gap: 1.75rem var(--np-column-gap);
+}
+
+@media (max-width: 768px) {
+  .np-posts {
+    grid-template-columns: 1fr;
+  }
+}

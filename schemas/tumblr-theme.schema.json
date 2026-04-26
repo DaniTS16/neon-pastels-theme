@@ -1,0 +1,341 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "$id": "https://luvmedia.group/schemas/tumblr-theme.schema.json",
+    "title": "Neon Pastels Tumblr Theme Schema",
+    "type": "object",
+    "required": [
+        "theme",
+        "branding",
+        "theme_options",
+        "color_system",
+        "motion_system"
+    ],
+    "properties": {
+        "theme": {
+            "type": "object",
+            "required": [
+                "name",
+                "version",
+                "status"
+            ],
+            "properties": {
+                "name": {
+                    "type": "string"
+                },
+                "version": {
+                    "type": "string",
+                    "pattern": "^\\d+\\.\\d+\\.\\d+$"
+                },
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "Theme Garden Ready",
+                        "Draft",
+                        "Deprecated"
+                    ]
+                },
+                "description": {
+                    "type": "string"
+                }
+            }
+        },
+        "branding": {
+            "type": "object",
+            "required": [
+                "parent_company",
+                "public_brand",
+                "legal_copy"
+            ],
+            "properties": {
+                "parent_company": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "public_facing": {
+                            "type": "boolean",
+                            "const": false
+                        }
+                    }
+                },
+                "public_brand": {
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        },
+                        "operates_as": {
+                            "type": "string"
+                        },
+                        "public_facing": {
+                            "type": "boolean",
+                            "const": true
+                        }
+                    }
+                },
+                "legal_copy": {
+                    "type": "object",
+                    "properties": {
+                        "required_format": {
+                            "type": "string",
+                            "const": "IRI National d/b/a Luv Media Group"
+                        },
+                        "display_condition": {
+                            "type": "string",
+                            "enum": [
+                                "public_mode_only"
+                            ]
+                        }
+                    }
+                },
+                "private_mode": {
+                    "type": "object",
+                    "properties": {
+                        "enabled": {
+                            "type": "boolean"
+                        },
+                        "effect": {
+                            "type": "string",
+                            "enum": [
+                                "remove_legal_footer"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "theme_options": {
+            "type": "object",
+            "required": [
+                "booleans",
+                "selects"
+            ],
+            "properties": {
+                "booleans": {
+                    "type": "object",
+                    "properties": {
+                        "Dark Mode Default": {
+                            "type": "boolean"
+                        },
+                        "Enable Logo Animation": {
+                            "type": "boolean"
+                        },
+                        "Reduce Motion": {
+                            "type": "boolean"
+                        },
+                        "Luv Only Mode": {
+                            "type": "boolean"
+                        }
+                    }
+                },
+                "selects": {
+                    "type": "object",
+                    "properties": {
+                        "Color Palette": {
+                            "type": "string",
+                            "enum": [
+                                "Pastel",
+                                "Peach",
+                                "Lilac",
+                                "Neon"
+                            ]
+                        },
+                        "Layout Style": {
+                            "type": "string",
+                            "enum": [
+                                "Single",
+                                "Wide",
+                                "Magazine"
+                            ]
+                        },
+                        "Motion Preset": {
+                            "type": "string",
+                            "enum": [
+                                "Subtle",
+                                "Brand",
+                                "Static"
+                            ]
+                        },
+                        "Neon Glow Intensity": {
+                            "type": "string",
+                            "enum": [
+                                "Soft",
+                                "Medium",
+                                "Strong"
+                            ]
+                        }
+                    }
+                },
+                "text": {
+                    "type": "object",
+                    "properties": {
+                        "Footer Text": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "color_system": {
+            "type": "object",
+            "required": [
+                "palettes",
+                "wcag"
+            ],
+            "properties": {
+                "palettes": {
+                    "type": "object",
+                    "additionalProperties": {
+                        "type": "object",
+                        "required": [
+                            "background",
+                            "foreground"
+                        ],
+                        "properties": {
+                            "background": {
+                                "type": "string",
+                                "pattern": "^#([A-Fa-f0-9]{6})$"
+                            },
+                            "foreground": {
+                                "type": "string",
+                                "pattern": "^#([A-Fa-f0-9]{6})$"
+                            },
+                            "accents": {
+                                "type": "array",
+                                "items": {
+                                    "type": "string",
+                                    "pattern": "^#([A-Fa-f0-9]{6})$"
+                                }
+                            }
+                        }
+                    }
+                },
+                "wcag": {
+                    "type": "object",
+                    "properties": {
+                        "standard": {
+                            "type": "string",
+                            "enum": [
+                                "WCAG 2.1 AA"
+                            ]
+                        },
+                        "status": {
+                            "type": "string",
+                            "enum": [
+                                "PASS"
+                            ]
+                        }
+                    }
+                }
+            }
+        },
+        "layout_system": {
+            "type": "object",
+            "additionalProperties": {
+                "type": "object",
+                "properties": {
+                    "max_width": {
+                        "type": "string"
+                    },
+                    "columns": {
+                        "type": "integer",
+                        "minimum": 1
+                    }
+                }
+            }
+        },
+        "motion_system": {
+            "type": "object",
+            "required": [
+                "tokens",
+                "presets",
+                "reduced_motion"
+            ],
+            "properties": {
+                "tokens": {
+                    "type": "object",
+                    "properties": {
+                        "logo_duration": {
+                            "type": "string"
+                        },
+                        "easing": {
+                            "type": "string"
+                        }
+                    }
+                },
+                "presets": {
+                    "type": "object",
+                    "properties": {
+                        "Subtle": {
+                            "type": "object"
+                        },
+                        "Brand": {
+                            "type": "object"
+                        },
+                        "Static": {
+                            "type": "object"
+                        }
+                    }
+                },
+                "reduced_motion": {
+                    "type": "object",
+                    "properties": {
+                        "supports_system_preference": {
+                            "type": "boolean",
+                            "const": true
+                        },
+                        "supports_theme_option": {
+                            "type": "boolean",
+                            "const": true
+                        }
+                    }
+                }
+            }
+        },
+        "accessibility": {
+            "type": "object",
+            "properties": {
+                "keyboard_navigation": {
+                    "type": "boolean",
+                    "const": true
+                },
+                "skip_link": {
+                    "type": "boolean",
+                    "const": true
+                },
+                "aria_landmarks": {
+                    "type": "boolean",
+                    "const": true
+                },
+                "reduced_motion": {
+                    "type": "boolean",
+                    "const": true
+                }
+            }
+        },
+        "theme_garden": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "enum": [
+                        "Ready"
+                    ]
+                },
+                "disallowed_features": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                        "enum": [
+                            "external tracking",
+                            "obfuscated code",
+                            "JSON parsing",
+                            "JS animation timelines"
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

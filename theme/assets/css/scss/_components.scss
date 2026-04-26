@@ -1,0 +1,129 @@
+// Links
+
+a {
+  color: var(--np-accent-1);
+  text-decoration: none;
+
+  &:hover,
+  &:focus-visible {
+    text-decoration: underline;
+  }
+}
+
+// Skip link
+
+.np-skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  padding: 0.5rem 1rem;
+  background: var(--np-accent-1);
+  color: var(--np-fg);
+  z-index: 1000;
+
+  &:focus {
+    left: 0.5rem;
+    top: 0.5rem;
+  }
+}
+
+// Header
+
+.np-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+
+  .np-theme.np-palette-Neon & {
+    background: rgba(0, 0, 0, 0.8);
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+  }
+}
+
+.np-header-inner {
+  max-width: var(--np-max-width);
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.np-logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.np-logo {
+  padding: 0.35rem 0.75rem;
+  border-radius: 999px;
+  background: var(--np-accent-1);
+  color: var(--np-fg);
+}
+
+.np-logo-animated {
+  box-shadow: var(--np-glow-strength);
+  opacity: 0;
+  transform: scale(0.9);
+  animation: np-logo-in var(--np-logo-duration) var(--np-easing) forwards;
+}
+
+// Posts
+
+.np-post {
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: var(--np-radius-lg);
+  padding: 1.5rem;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.06);
+
+  .np-theme.np-palette-Neon & {
+    background: rgba(10, 10, 10, 0.9);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.8);
+  }
+}
+
+.np-post-header {
+  margin-bottom: 0.75rem;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.7;
+}
+
+.np-post-content {
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+
+// Footer
+
+.np-footer {
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding: 1rem 1.25rem 2rem;
+  margin-top: 2rem;
+
+  .np-theme.np-palette-Neon & {
+    border-top-color: rgba(255, 255, 255, 0.12);
+  }
+}
+
+.np-footer-inner {
+  max-width: var(--np-max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+// Luv Only Mode
+
+.np-luv-only .np-legal {
+  display: none;
+}

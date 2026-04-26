@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>{Title}</title>
+  <meta name="description" content="{MetaDescription}">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Neon Pastels — Tumblr Theme -->
+  <!-- Version 1.2.0 — Theme Garden Ready -->
+
+  {block:Options}
+    {Option name="DarkModeDefault" type="boolean" default="0"}
+    {Option name="EnableLogoAnimation" type="boolean" default="1"}
+    {Option name="ReduceMotion" type="boolean" default="0"}
+    {Option name="LuvOnlyMode" type="boolean" default="0"}
+
+    {Option name="ColorPalette" type="select" default="Pastel"
+      options="Pastel, Peach, Lilac, Neon"}
+    {Option name="LayoutStyle" type="select" default="Single"
+      options="Single, Wide, Magazine"}
+    {Option name="MotionPreset" type="select" default="Brand"
+      options="Subtle, Brand, Static"}
+    {Option name="NeonGlowIntensity" type="select" default="Medium"
+      options="Soft, Medium, Strong"}
+
+    {Option name="FooterText" type="text" default="Powered by Tumblr"}
+  {/block:Options}
+
+  <link rel="stylesheet" href="{StaticUrl}/assets/css/main.css">
+</head>
+
+<body
+  class="
+    np-theme
+    {block:IfDarkModeDefault}np-dark-default{/block:IfDarkModeDefault}
+    {block:IfNotDarkModeDefault}np-light-default{/block:IfNotDarkModeDefault}
+    np-layout-{select:LayoutStyle}
+    np-motion-{select:MotionPreset}
+    np-palette-{select:ColorPalette}
+    np-glow-{select:NeonGlowIntensity}
+    {block:IfReduceMotion}np-reduce-motion{/block:IfReduceMotion}
+    {block:IfLuvOnlyMode}np-luv-only{/block:IfLuvOnlyMode}
+  "
+>
+
+  <a class="np-skip-link" href="#np-main">Skip to content</a>
+
+  <header class="np-header" role="banner">
+    <div class="np-header-inner">
+      <a href="{BlogURL}" class="np-logo-link" aria-label="{Title}">
+        <span class="np-logo np-logo-static">{Title}</span>
+
+        {block:IfEnableLogoAnimation}
+        {block:IfNotReduceMotion}
+        {block:IfNotMotionPresetStatic}
+        <span class="np-logo np-logo-animated" aria-hidden="true">{Title}</span>
+        {/block:IfNotMotionPresetStatic}
+        {/block:IfNotReduceMotion}
+        {/block:IfEnableLogoAnimation}
+      </a>
+
+      <nav class="np-nav" role="navigation">
+        <ul class="np-nav-list">
+          {block:HasPages}{block:Pages}
+          <li><a href="{URL}">{Label}</a></li>
+          {/block:Pages}{/block:HasPages}
+
+          {block:AskEnabled}<li><a href="/ask">Ask</a></li>{/block:AskEnabled}
+          {block:SubmissionsEnabled}<li><a href="/submit">Submit</a></li>{/block:SubmissionsEnabled}
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="np-main" class="np-main">
+    <section class="np-blog-meta">
+      <h1>{Title}</h1>
+      {block:Description}<p>{Description}</p>{/block:Description}
+    </section>
+
+    <section class="np-posts">
+      {block:Posts}
+      <article class="np-post np-post-{PostType}" id="post-{PostID}">
+        {block:Date}
+        <header class="np-post-header">
+          <a href="{Permalink}">{DayOfMonth} {ShortMonth} {Year}</a>
+        </header>
+        {/block:Date}
+
+        <div class="np-post-body">
+
+          {block:Text}
+          {block:Title}<h2><a href="{Permalink}">{Title}</a></h2>{/block:Title}
+          <div class="np-post-content">{Body}</div>
+          {/block:Text}
+
+          {block:Photo}
+          <div class="np-post-content">
+            {LinkOpenTag}<img src="{PhotoURL-HighRes}" alt="{PhotoAlt}">{LinkCloseTag}
+            {block:Caption}<div class="np-post-caption">{Caption}</div>{/block:Caption}
+          </div>
+          {/block:Photo}
+
+          {block:Photoset}
+          <div class="np-post-content">{Photoset}
+            {block:Caption}<div class="np-post-caption">{Caption}</div>{/block:Caption}
+          </div>
+          {/block:Photoset}
+
+          {block:Quote}
+          <blockquote>{Quote}</blockquote>
+          {block:Source}<p class="np-post-quote-source">{Source}</p>{/block:Source}
+          {/block:Quote}
+
+          {block:Link}
+          <h2><a href="{URL}" {Target}>{Name}</a></h2>
+          {block:Description}<div class="np-post-caption">{Description}</div>{/block:Description}
+          {/block:Link}
+
+          {block:Chat}
+          <ul class="np-chat-lines">
+            {block:Lines}
+            <li>
+              {block:Label}<strong>{Label}</strong>{/block:Label} {Line}
+            </li>
+            {/block:Lines}
+          </ul>
+          {/block:Chat}
+
+          {block:Audio}
+          {AudioPlayer}
+          {block:Caption}<div class="np-post-caption">{Caption}</div>{/block:Caption}
+          {/block:Audio}
+
+          {block:Video}
+          {Video-700}
+          {block:Caption}<div class="np-post-caption">{Caption}</div>{/block:Caption}
+          {/block:Video}
+
+          {block:Answer}
+          <div class="np-question"><strong>{Asker} asked:</strong> {Question}</div>
+          <div class="np-answer-text">{Answer}</div>
+          {/block:Answer}
+
+        </div>
+
+        <footer class="np-post-footer">
+          {block:HasTags}
+          <ul class="np-tags">
+            {block:Tags}<li><a href="{TagURL}">#{Tag}</a></li>{/block:Tags}
+          </ul>
+          {/block:HasTags}
+
+          {block:NoteCount}
+          <a href="{Permalink}">{NoteCountWithLabel}</a>
+          {/block:NoteCount}
+        </footer>
+      </article>
+      {/block:Posts}
+
+      {block:NoPosts}<p>No posts yet.</p>{/block:NoPosts}
+    </section>
+
+    <nav class="np-pagination">
+      {block:Pagination}
+      {block:PreviousPage}<a href="{PreviousPage}">Previous</a>{/block:PreviousPage}
+      {block:NextPage}<a href="{NextPage}">Next</a>{/block:NextPage}
+      {/block:Pagination}
+    </nav>
+  </main>
+
+  <footer class="np-footer">
+    <span>{text:FooterText}</span>
+
+    {block:IfNotLuvOnlyMode}
+    <span class="np-legal">IRI National d/b/a Luv Media Group</span>
+    {/block:IfNotLuvOnlyMode}
+  </footer>
+
+</body>
+</html>
